@@ -1,0 +1,30 @@
+<div class="col-xs-12">
+    <span ng-if="searchResults.nbHits">Total Records : {{searchResults.nbHits}}</span>
+    <div class="panel panel-default" ng-repeat="data in searchResults.hits">
+            <div class="panel-heading" >
+                <span ng-bind="data.title"></span>
+                <span><a href="{{data.url}}">{{data.url}}</a></span>
+            </div>
+            
+            <div class="panel-body" >
+                <span>{{data.points}} points</span> |
+                <span><button class="btn btn-link" ng-click="getUserInfo(data.author)">{{data.author}}</button></span>
+                <div ng-if="showInfo[data.author].isShow && showAutherInfo">
+                    <h6>submission count : {{showInfo[data.author].details}}
+                        </h6>
+                    </div>
+                <div ng-bind="data.story_text">
+
+                </div>
+            </div>
+          </div>
+          <ul class="pagination" >
+              <li ng-if="startPage > 10 && searchResults.hits"><a ng-click="callPages('prev')"> prev</a></li>
+                <li ng-repeat="page in pagelist track by $index"><a href="#" ng-click="goToPerticularPage(page)">{{page}}</a></li>
+                <li ng-if="endPage < pages"><a ng-click="callPages('next')">next</a></li>
+              </ul>
+          <div ng-if="!searchResults.hits.length">
+            <h4>No Data Found</h4>
+          </div>
+          
+</div>

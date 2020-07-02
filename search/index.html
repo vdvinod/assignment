@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"></script>
+    <script src="./app.js"></script>
+</head>
+
+<body ng-app="searchapp">
+        <div class="container-fluid" ng-controller="searchCtrl">
+            <div class="col-xs-12">
+                <div class="search-field-container col-xs-12 col-md-6">
+                    <div class="search-box"> 
+                        <input type="search" ng-model="searchText" ng-change="searchData()" ng-model-options="{debounce: 1000}">
+                    </div>
+                    <div class="search-button-container">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 search-options">
+                    <input type="radio" name="source" ng-model="source" ng-value="1"> Hacker news search 
+                    <input type="radio" name="source" ng-model="source" ng-value="2"> Wiki search 
+
+                    <input type="checkbox" name="autherInfo" ng-model="autherInfo"> Auther Info
+
+
+                </div>
+
+            </div>
+            <div class="col-xs-12">
+                <search-result search-results="searchResults" show-auther-info="autherInfo" pages="pages" page-no="currentPage"></search-result>
+            </div>
+        </div>
+</body>
+</html>

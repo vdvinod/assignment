@@ -1,0 +1,33 @@
+* {
+    margin: 0px;
+    padding:0px;
+}
+.search-field-container {
+    background: #fff;
+    display: flex;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    height: 39px;
+    border-radius: 24px;
+    z-index: 3;
+    height: 44px;
+    margin: 20px auto;
+}
+.search-box {
+    width: 90%;
+    padding: 10px;
+}
+.search-box input{
+    width: 90%;
+    border: 0px;
+    outline: none;
+}
+.search-button-container{
+    margin: 10px auto;
+}
+.search-options {
+    margin: 30px auto;
+}
+.panel a {
+    word-break: break-all
+}
